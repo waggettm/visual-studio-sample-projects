@@ -98,5 +98,24 @@ namespace BasicLibraryTests
 
 			Assert::IsTrue(derivedFooDynamic == nullptr);
 		}
+
+		TEST_METHOD(NoExceptThatThrowsWillTerminateProgram) 
+		{
+			try 
+			{
+				NoExceptThatThrows();
+			}
+			catch (...) 
+			{
+				Assert::Fail(L"This isn't possible!");
+			}
+		}
+
+		// Specifying noexcept here means that from a programming standpoint, I can expect to be able to call this without
+		// fear of any exception being thrown. If one is thrown, the program will be terminated.
+		void NoExceptThatThrows() noexcept
+		{
+			throw new std::exception("Exception!");
+		}
 	};
 }
