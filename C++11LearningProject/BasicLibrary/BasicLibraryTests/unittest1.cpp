@@ -3,6 +3,7 @@
 #include <iostream>
 #include "..\BasicLibrary\BaseFoo.h"
 #include "..\BasicLibrary\DerivedFoo.h"
+#include "..\BasicLibrary\Bar.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -75,6 +76,27 @@ namespace BasicLibraryTests
 			// This will be true because the garbage pointer will not be null!
 			bool valAsBool = bool(p);
 			Assert::AreEqual(true, valAsBool);
+		}
+
+		TEST_METHOD(StaticCastVsDynamicCastBasics) 
+		{
+			BaseFoo* baseFoo = new BaseFoo();
+
+			// Behavior here is undefined - we'll get back a DerivedFoo* but beware actually trying to use it as a DerivedFoo.
+			DerivedFoo* derivedFooStatic = static_cast<DerivedFoo*>(baseFoo);
+
+			// This line would not compile - static_cast is a compile-time check and since these types aren't related, this wouldn't compile.
+			//Bar* baseFooAsBarPointer = static_cast<Bar*>(baseFoo);
+
+			// Here we know that the result of this cast will be equivalent to nullptr - these types aren't related, but this does compile.
+			Bar* baseFooAsBarPointerDynamic = dynamic_cast<Bar*>(baseFoo);
+
+			Assert::IsTrue(baseFooAsBarPointerDynamic == nullptr);
+
+			// Here we know that the result of this cast will be equivalent to nullptr - since it really isn't a DerivedFoo.
+			DerivedFoo* derivedFooDynamic = dynamic_cast<DerivedFoo*>(baseFoo);
+
+			Assert::IsTrue(derivedFooDynamic == nullptr);
 		}
 	};
 }

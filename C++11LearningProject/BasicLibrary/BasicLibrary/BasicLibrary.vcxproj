@@ -145,12 +145,14 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bar.h" />
     <ClInclude Include="BaseFoo.h" />
     <ClInclude Include="DerivedFoo.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bar.cpp" />
     <ClCompile Include="BaseFoo.cpp" />
     <ClCompile Include="DerivedFoo.cpp" />
     <ClCompile Include="dllmain.cpp">
