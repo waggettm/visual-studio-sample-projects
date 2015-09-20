@@ -1,11 +1,13 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
 #include <iostream>
+#include <memory>
 #include "..\BasicLibrary\BaseFoo.h"
 #include "..\BasicLibrary\DerivedFoo.h"
 #include "..\BasicLibrary\Bar.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
+using namespace std;
 
 namespace BasicLibraryTests
 {		
@@ -116,6 +118,23 @@ namespace BasicLibraryTests
 		void NoExceptThatThrows() noexcept
 		{
 			throw new std::exception("Exception!");
+		}
+
+		TEST_METHOD(UniquePtrSemantics) 
+		{
+			unique_ptr<DerivedFoo> derivedFoo = GetDerivedFooUniquePtr();
+
+			derivedFoo->DoSomething();
+
+			// If I were to call release here, when this method is done, the destructor would not be called automatically.
+			//DerivedFoo * ptr = derivedFoo.release();
+
+			// At the end of this test method, the destructor will be called. Thanks unique_ptr!
+		}
+
+		unique_ptr<DerivedFoo> GetDerivedFooUniquePtr()
+		{
+			return unique_ptr<DerivedFoo>(new DerivedFoo);
 		}
 	};
 }
