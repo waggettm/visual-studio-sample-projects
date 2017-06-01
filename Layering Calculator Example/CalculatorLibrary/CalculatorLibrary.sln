@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorLibrary", "CalculatorLibrary\CalculatorLibrary.csproj", "{B31FB441-37C0-4818-838B-8F26AA8208C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{7525B3F4-F460-4713-9A42-466C6149CF84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{6FC4D388-E514-4089-A8AB-450CBC7FB9C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{F85648BF-5FC4-4EB3-B15A-3EA9D2E26F79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleCalculatorApp", "ConsoleCalculatorApp\ConsoleCalculatorApp.csproj", "{E57DD3D1-DDC9-4E59-A966-34D177D9FA58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuiCalculatorApp", "GuiCalculatorApp\GuiCalculatorApp.csproj", "{84E537CD-8311-453F-9277-93E1312FCA36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B31FB441-37C0-4818-838B-8F26AA8208C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B31FB441-37C0-4818-838B-8F26AA8208C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B31FB441-37C0-4818-838B-8F26AA8208C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B31FB441-37C0-4818-838B-8F26AA8208C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E57DD3D1-DDC9-4E59-A966-34D177D9FA58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E57DD3D1-DDC9-4E59-A966-34D177D9FA58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E57DD3D1-DDC9-4E59-A966-34D177D9FA58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E57DD3D1-DDC9-4E59-A966-34D177D9FA58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84E537CD-8311-453F-9277-93E1312FCA36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84E537CD-8311-453F-9277-93E1312FCA36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84E537CD-8311-453F-9277-93E1312FCA36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84E537CD-8311-453F-9277-93E1312FCA36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E57DD3D1-DDC9-4E59-A966-34D177D9FA58} = {7525B3F4-F460-4713-9A42-466C6149CF84}
+		{84E537CD-8311-453F-9277-93E1312FCA36} = {7525B3F4-F460-4713-9A42-466C6149CF84}
+	EndGlobalSection
+EndGlobal
