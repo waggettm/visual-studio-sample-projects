@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <TextBox x:Name="firstValueTextBox" HorizontalAlignment="Left" Height="23" Margin="34,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.117,0.626"/>
+        <TextBox x:Name="secondValueTextBox" HorizontalAlignment="Left" Height="23" Margin="181,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.117,0.626"/>
+        <Label x:Name="label" Content="=" HorizontalAlignment="Left" Margin="306,87,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.184,-0.017"/>
+        <Label x:Name="label1" Content="+" HorizontalAlignment="Left" Margin="159,87,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.238,1.77"/>
+        <TextBlock x:Name="resultTextBlock" HorizontalAlignment="Left" Margin="359,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115"/>
+        <Button x:Name="button" Content="Add" HorizontalAlignment="Left" Margin="129,135,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="100" Margin="306,204,0,0" VerticalAlignment="Top" Width="191"/>
+        <Label x:Name="label2" Content="Transaction History" HorizontalAlignment="Left" Margin="306,178,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="Enter double values to add&#xD;&#xA;" HorizontalAlignment="Left" Margin="98,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.183,-0.317"/>
+
     </Grid>
 </Window>

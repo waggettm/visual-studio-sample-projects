@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace RegularAdditionImplementation
 {
     /// <summary>
-    /// No fancy business requirements for this guy, no logging, no wacky math, just regular addition.
+    /// No fancy business requirements for this guy, no logging, just regular addition.
     /// </summary>
     public class RegularAddition : IAddition
     {

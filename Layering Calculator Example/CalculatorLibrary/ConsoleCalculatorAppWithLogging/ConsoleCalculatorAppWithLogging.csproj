@@ -1,14 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E57DD3D1-DDC9-4E59-A966-34D177D9FA58}</ProjectGuid>
+    <ProjectGuid>{E4B95FAC-3901-454B-B7B6-DA4A2F97A690}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConsoleCalculatorApp</RootNamespace>
-    <AssemblyName>ConsoleCalculatorApp</AssemblyName>
+    <RootNamespace>ConsoleCalculatorAppWithLogging</RootNamespace>
+    <AssemblyName>ConsoleCalculatorAppWithLogging</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,9 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -51,24 +47,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CalculatorImplementation\RegularAdditionImplementation.csproj">
-      <Project>{789F0105-0834-43DD-873B-39290746E56B}</Project>
-      <Name>RegularAdditionImplementation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CalculatorInterfaces\CalculatorInterfaces.csproj">
-      <Project>{59894ACB-FB35-4659-9523-1C98539F57CF}</Project>
-      <Name>CalculatorInterfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CalculatorLibrary\CalculatorLibrary.csproj">
       <Project>{b31fb441-37c0-4818-838b-8f26aa8208c0}</Project>
       <Name>CalculatorLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CompositionForNoLogging\CompositionForNoLogging.csproj">
-      <Project>{9c54eeb0-fdb6-4554-bdf4-89af82fcbe38}</Project>
-      <Name>CompositionForNoLogging</Name>
+    <ProjectReference Include="..\CompositionForLogging\CompositionForLogging.csproj">
+      <Project>{93bc14e6-a1fb-4e0d-a7e6-6d61d846b200}</Project>
+      <Name>CompositionForLogging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data\Data.Contracts.csproj">
+      <Project>{7fe628d3-8f78-4221-b229-cb1f2f224b13}</Project>
+      <Name>Data.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\IntegerViewModel\ViewModels.csproj">
       <Project>{f3ab4ec7-7c74-48d8-b305-63161308299e}</Project>
@@ -79,13 +70,5 @@
       <Name>RepositoryQueryInterfaces</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

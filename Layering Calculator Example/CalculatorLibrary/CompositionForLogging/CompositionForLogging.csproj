@@ -1,20 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E57DD3D1-DDC9-4E59-A966-34D177D9FA58}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{93BC14E6-A1FB-4E0D-A7E6-6D61D846B200}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConsoleCalculatorApp</RootNamespace>
-    <AssemblyName>ConsoleCalculatorApp</AssemblyName>
+    <RootNamespace>CompositionForLogging</RootNamespace>
+    <AssemblyName>CompositionForLogging</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -36,6 +33,15 @@
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,46 +52,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Composition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CalculatorImplementation\RegularAdditionImplementation.csproj">
-      <Project>{789F0105-0834-43DD-873B-39290746E56B}</Project>
-      <Name>RegularAdditionImplementation</Name>
+    <ProjectReference Include="..\BusinessCorpCalculatorImplementation\BusinessCorpAdditionImplementation.csproj">
+      <Project>{64e84cb3-514b-4b36-9804-6613ab7a7c91}</Project>
+      <Name>BusinessCorpAdditionImplementation</Name>
     </ProjectReference>
     <ProjectReference Include="..\CalculatorInterfaces\CalculatorInterfaces.csproj">
-      <Project>{59894ACB-FB35-4659-9523-1C98539F57CF}</Project>
+      <Project>{59894acb-fb35-4659-9523-1c98539f57cf}</Project>
       <Name>CalculatorInterfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\CalculatorLibrary\CalculatorLibrary.csproj">
       <Project>{b31fb441-37c0-4818-838b-8f26aa8208c0}</Project>
       <Name>CalculatorLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CompositionForNoLogging\CompositionForNoLogging.csproj">
-      <Project>{9c54eeb0-fdb6-4554-bdf4-89af82fcbe38}</Project>
-      <Name>CompositionForNoLogging</Name>
+    <ProjectReference Include="..\Data.Implementation\Data.Implementation.csproj">
+      <Project>{7d5532ed-0371-4071-bbc2-0abcc729f060}</Project>
+      <Name>Data.Implementation</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IntegerViewModel\ViewModels.csproj">
-      <Project>{f3ab4ec7-7c74-48d8-b305-63161308299e}</Project>
-      <Name>ViewModels</Name>
+    <ProjectReference Include="..\Data\Data.Contracts.csproj">
+      <Project>{7fe628d3-8f78-4221-b229-cb1f2f224b13}</Project>
+      <Name>Data.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepositoryQueries\RepositoryQueries.csproj">
+      <Project>{77ffad88-76b1-45fc-82cf-e638bdc6b8ca}</Project>
+      <Name>RepositoryQueries</Name>
     </ProjectReference>
     <ProjectReference Include="..\RepositoryQueryInterfaces\RepositoryQueryInterfaces.csproj">
       <Project>{b232474e-6eb2-4e1d-b91d-b470417f5dc2}</Project>
       <Name>RepositoryQueryInterfaces</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

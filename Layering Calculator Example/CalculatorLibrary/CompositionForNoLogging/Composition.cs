@@ -2,15 +2,10 @@
 using CalculatorLibrary;
 using Microsoft.Practices.Unity;
 using RegularAdditionImplementation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ConsoleCalculatorApp.Composition
+namespace CompositionForLogging
 {
-    public static class UnityComposition
+    public class Composition
     {
         public static IUnityContainer UnityContainer;
 
@@ -25,6 +20,10 @@ namespace ConsoleCalculatorApp.Composition
         public static void DisposeContainer()
         {
             UnityContainer.Dispose();
+        }
+        public static Calculator GetCalculator()
+        {
+            return UnityContainer.Resolve<Calculator>();
         }
     }
 }

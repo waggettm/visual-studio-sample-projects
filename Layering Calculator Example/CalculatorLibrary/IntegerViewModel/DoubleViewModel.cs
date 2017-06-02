@@ -8,7 +8,12 @@ namespace ViewModels
 {
     public class DoubleViewModel
     {
-        public double Value { get; set; }
+        public string Value { get; set; }
         public IFormatProvider FormatProvider { get; set; }
+
+        public override string ToString()
+        {
+            return Value;
+        }
     }
 }

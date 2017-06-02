@@ -11,5 +11,10 @@ namespace ViewModels
         public DoubleViewModel First { get; set; }
         public DoubleViewModel Second { get; set; }
         public DoubleViewModel Result { get; set; }
+
+        public override string ToString()
+        {
+            return "User View Model:: First: " + First + " Second: " + Second + " Result: " + Result;
+        }
     }
 }

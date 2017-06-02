@@ -1,4 +1,5 @@
 ﻿using CompositionForLogging;
+using Data.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -32,6 +33,22 @@ namespace ConsoleCalculatorAppWithLogging
             second = new DoubleViewModel { Value = "2,6", FormatProvider = currentUserCulture };
 
             Console.WriteLine(calculator.Add(first.MapToDouble(), second.MapToDouble()).MapToDoubleViewModel(currentUserCulture));
+
+            var queries = Composition.GetQueries();
+
+            foreach (var transaction in queries.GetAllTransactions())
+            {
+                // User view of the data
+                Console.WriteLine(transaction.MapToTransactionViewModel(currentUserCulture));
+
+                // Stored persisted version of the data - demonstrates data representation as persisted does not need to match what's shown to the user.
+                Console.WriteLine(DataTransactionContents(transaction));
+            }
+        }
+
+        private static string DataTransactionContents(IDoubleTransaction transaction)
+        {
+            return "Data Transaction Record:: First: " + transaction.FirstValue + " Second: " + transaction.SecondValue + " Result: " + transaction.ResultReturned;
         }
     }
 }

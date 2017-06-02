@@ -24,5 +24,11 @@ namespace GuiCalculatorApp
         {
             InitializeComponent();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            string first = this.firstValueTextBox.Text;
+            string second = this.secondValueTextBox.Text;
+        }
     }
 }

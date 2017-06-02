@@ -11,12 +11,12 @@ namespace ViewModels.Mapping
     {
         public static double MapToDouble(this DoubleViewModel viewModel)
         {
-            return viewModel.Value;
+            return Double.Parse(viewModel.Value, viewModel.FormatProvider);
         }
 
         public static DoubleViewModel MapToDoubleViewModel(this double value, IFormatProvider formatProvider)
         {
-            return new DoubleViewModel { FormatProvider = formatProvider, Value = value };
+            return new DoubleViewModel { Value = value.ToString(formatProvider), FormatProvider = formatProvider };
         }
     }
 }

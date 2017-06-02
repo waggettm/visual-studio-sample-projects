@@ -11,7 +11,7 @@ namespace Data.Implementation.Transactions
     public class InMemoryTransactionRepository : ITransactionRepository
     {
         // In memory implementation - could easily be a service, database, etc..
-        private HashSet<IDoubleTransaction> _transactions;
+        private static HashSet<IDoubleTransaction> _transactions = new HashSet<IDoubleTransaction>();
 
         public void AddTransaction(IDoubleTransaction transaction)
         {
